@@ -62,7 +62,7 @@ public class ProdutoDao {
 				.setParameter("nome", nome)
 				.getSingleResult();
 	}
-	
+
 //	public List<Produto> buscarPorParametros(String nome,
 //			BigDecimal preco, LocalDate dataCadastro) {
 //		String jpql = "SELECT p FROM Produto p WHERE 1=1 ";
@@ -88,7 +88,7 @@ public class ProdutoDao {
 //
 //		return query.getResultList();
 //	}
-	
+
 	public List<Produto> buscarPorParametrosComCriteria(String nome, 
 			BigDecimal preco, LocalDate dataCadastro) {
 	

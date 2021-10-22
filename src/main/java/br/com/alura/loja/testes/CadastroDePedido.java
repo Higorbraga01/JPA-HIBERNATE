@@ -6,6 +6,7 @@ import br.com.alura.loja.dao.PedidoDAO;
 import br.com.alura.loja.dao.ProdutoDAO;
 import br.com.alura.loja.modelo.*;
 import br.com.alura.loja.util.JPAUtil;
+import br.com.alura.loja.vo.RelatorioVendasVo;
 
 import javax.persistence.EntityManager;
 import java.math.BigDecimal;
@@ -29,12 +30,12 @@ public class CadastroDePedido {
         BigDecimal totalVendido = pedidoDAO.valorTotalVendido();
         System.out.println("Valor Total: "+totalVendido);
 
-        List<Object[]> relatorio = pedidoDAO.relatorioDeVendas();
+        List<RelatorioVendasVo> relatorio = pedidoDAO.relatorioDeVendas();
 
-        for (Object[] item : relatorio) {
-            System.out.println(item[0]);
-            System.out.println(item[1]);
-            System.out.println(item[2]);
+        for (RelatorioVendasVo item : relatorio) {
+            System.out.println(item.getNomeProduto());
+            System.out.println(item.getDataUltimaVenda());
+            System.out.println(item.getQuantidadeVendida());
         }
 
     }

@@ -15,7 +15,7 @@ public class Pedido {
     private Long id;
     private LocalDate data = LocalDate.now();
     @Column(name = "valor_total")
-    private BigDecimal valorTotal;
+    private BigDecimal valorTotal = BigDecimal.ZERO;
 
     @ManyToOne()
     private Cliente cliente;
@@ -65,5 +65,6 @@ public class Pedido {
     public void adicionarItem(ItemPedido item) {
         item.setPedido(this);
         this.itens.add(item);
+        this.valorTotal = this.valorTotal.add(item.getValor());
     }
 }
